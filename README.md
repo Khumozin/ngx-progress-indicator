@@ -1,27 +1,72 @@
 # NgxProgressIndicator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+A progress indicator library for [Angular](https://angular.io/) apps.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You can install it through **Angular CLI**:
 
-## Code scaffolding
+```bash
+ng add ngx-progress-indicator
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+or with **npm**:
 
-## Build
+```bash
+# For Angular version >= 13
+npm install ngx-progress-indicator
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+When you install using **npm**, you will also need to import `NgxProgressIndicatorModule` in your `app.module`. You can also set global NgxProgressIndicator config ([`Partial<NgxProgressIndicatorConfig>`](#ngxprogressindicatorconfig)) here.:
 
-## Running unit tests
+```typescript
+import { NgxProgressIndicatorModule } from 'ngx-progress-indicator';
+@NgModule({
+  imports: [NgxProgressIndicatorModule.forRoot({ color: '#0083ff' })],
+})
+class AppModule {}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Basic Usage
 
-## Running end-to-end tests
+```typescript
+import { Component } from '@angular/core';
+import { NgxProgressIndicatorService } from 'ngx-progress-indicator';
+import { interval, take } from 'rxjs';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@Component({
+  ...
+})
+export class AppComponent {
 
-## Further help
+    constructor(private service: NgxProgressIndicatorService) {
+        // show ngx progress indicator
+        this.service.start();
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+        interval(3000)
+            .pipe(take(1))
+            .subscribe({
+                next: () => this.service.finish() // hide ngx progress indicator after 3 seconds
+            });
+    }
+
+}
+```
+
+## NgxProgressIndicatorConfig
+
+| Name         | Type      | Description                                                       |
+| ------------ | --------- | ----------------------------------------------------------------- |
+| size | `number` or `string` | The size (height) of the progress indicator. Numeric values get converted to px.<br>_Default: false_ |
+| color | `string` | Color of the progress bar. Also used for the glow around the bar.<br>_Default: false_ |
+| className | `string` | Class name used for the progress bar element.<br>_Default: false_ |
+| delay | `number` | How many milliseconds to wait before the progress bar animation starts after calling .start().<br>_Default: false_ |
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
