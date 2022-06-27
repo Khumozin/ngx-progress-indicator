@@ -1,12 +1,11 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { NgxProgressIndicatorConfig } from './ngx-progress-indicator-config.model';
-import { NgxProgressIndicatorComponent } from './ngx-progress-indicator.component';
 
 @NgModule({
-  declarations: [NgxProgressIndicatorComponent],
+  declarations: [],
   imports: [],
-  exports: [NgxProgressIndicatorComponent],
+  exports: [],
 })
 export class NgxProgressIndicatorModule {
   static forRoot(
