@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "commit": "git-cz",
     "semantic-release": "semantic-release"
   },
   "private": false,
@@ -30,6 +31,7 @@
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "copyfiles": "^2.4.1",
+    "cz-conventional-changelog": "^3.3.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -37,11 +39,16 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^13.0.0",
-    "typescript": "~4.6.2",
-    "semantic-release": "^19.0.3"
+    "semantic-release": "^19.0.3",
+    "typescript": "~4.6.2"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Khumozin/ngx-progress-indicator.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
