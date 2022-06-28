@@ -33,7 +33,7 @@ export function ngAdd(): Rule {
       addImportToModule(
         sourceFile,
         modulePath,
-        `NgxProgressIndicatorModule.forRoot({ color: '#0083ff' })`,
+        `NgxProgressIndicatorModule.forRoot({ color: '#0083ff', size: 2 })`,
         'ngx-progress-indicator'
       )
     );
