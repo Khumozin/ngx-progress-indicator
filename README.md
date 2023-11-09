@@ -13,8 +13,11 @@ ng add ngx-progress-indicator
 or with **npm**:
 
 ```bash
-# For Angular version >= 13
-npm i ngx-progress-indicator
+# For Angular version 13
+npm i ngx-progress-indicator@2
+
+# For Angular version 14
+npm i ngx-progress-indicator@4
 ```
 
 When you install using **npm**, you will also need to import `NgxProgressIndicatorModule` in your `app.module`. You can also set global NgxProgressIndicator config ([`Partial<NgxProgressIndicatorConfig>`](#ngxprogressindicatorconfig)) here.:
