@@ -8,6 +8,7 @@
   "keywords": [
     "angular",
     "angular 2",
+    "loading-indicator",
     "ngx-progress-indicator"
   ],
   "publishConfig": {
@@ -18,8 +19,8 @@
   },
   "schematics": "./schematics/collection.json",
   "peerDependencies": {
-    "@angular/common": "^15.2.10",
-    "@angular/core": "^15.2.10"
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12"
   },
   "dependencies": {
     "tslib": "^2.3.0"
